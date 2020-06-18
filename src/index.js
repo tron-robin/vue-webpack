@@ -1,16 +1,14 @@
-import Vue from 'vue/dist/vue.js';
-import Router from "vue-router";
-import router from "./router/index.js"
-import App from './App.vue';
+import Vue from 'vue';
+import App from "./App";
+import store from "./store";
+import axios from "axios";
+import router from "./router";
 
-
-Vue.use(Router);
+Vue.prototype.$http = axios;
 new Vue({
-    el:'#app',
+    el:"#app",
+    store,
     router,
-    components: { App },
-    template: '<App/>',
-    mounted() {
-        console.log(this)   
-    }
+    components:{ App },
+    template:"<App/>"
 })
